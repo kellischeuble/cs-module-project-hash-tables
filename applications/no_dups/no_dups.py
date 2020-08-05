@@ -1,7 +1,17 @@
 def no_dups(s):
-    # Your code here
+    
+    words = s.split()
 
+    word_dict = dict()
 
+    if words:
+        for word in words:
+            if word not in word_dict:
+                word_dict[word] = True
+    else:
+        return ""
+
+    return " ".join(list(word_dict.keys()))
 
 if __name__ == "__main__":
     print(no_dups(""))
