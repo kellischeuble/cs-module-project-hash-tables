@@ -1,13 +1,28 @@
 import random
 
-# Read in all the words in one go
 with open("input.txt") as f:
     words = f.read()
 
-# TODO: analyze which words can follow other words
-# Your code here
+words = words.split()
 
+word_after = dict()
 
-# TODO: construct 5 random sentences
-# Your code here
+for i, word in enumerate(words[:-1]):
+    if word in word_after:
+        word_after[word].append(words[i+1])
+    else: 
+        word_after[word] = [words[i+1]]
+
+sentence = "he"
+value = sentence
+
+while not sentence.endswith('.'):
+
+    new_word = random.choice(word_after[value])
+    sentence = sentence + ' ' + new_word
+    value = new_word
+
+print(sentence)
+
+    
 
