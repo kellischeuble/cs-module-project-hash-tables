@@ -17,7 +17,8 @@ for word in words:
     word_dict[word] += 1
 
 words = list(word_dict.items())
-words.sort(key=lambda x: (x[1], x[0]))
+words.sort()
+words.sort(key=lambda x: x[1], reverse=True)
 
 for word in words:
     print(word[0] + " " * (15 - len(word[0])) + "#" * word[1])
